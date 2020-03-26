@@ -1,15 +1,30 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <title>The White Claw Machine</title>
+    <meta charset="UTF-8" />
 
-<head>
-    <title>Hello Webpack</title>
-</head>
+    <style>
+      #gameScreen {
+        border: 1px solid black;
+      }
+    </style>
+  </head>
 
-<body>
-    <div>
-        <h1>Hello Webpack</h1>
+  <body>
+    <h2>Welcome to the White Claw!</h2>
+    <h4>-currently under development-</h4>
+    <h4>-move claw with left/right keyboard arrows</h4>
+
+    <div class="left">
+      <canvas id="gameScreen" width="450" height="550"></canvas>
+      <script src="./bundle.js"></script>
     </div>
-    <script src="./bundle.js"></script>
-</body>
 
+    <img
+      src="https://i.ytimg.com/vi/VEitJ2SAk3M/maxresdefault.jpg"
+      height="200px"
+      width="380px"
+    />
+  </body>
 </html>
