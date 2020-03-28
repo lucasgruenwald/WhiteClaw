@@ -8,8 +8,8 @@ export default class Claw {
     this.speed = 0;
 
     this.position = {
-      x: gameWidth - 350,
-      y: gameHeight - 500
+      x: gameWidth - 410,
+      y: gameHeight - 530
     };
   }
 
@@ -26,7 +26,7 @@ export default class Claw {
   }
 
   draw(ctx) {
-    ctx.fillStyle = "#0ff";
+    ctx.fillStyle = "#5A585C";
     ctx.fillRect(this.position.x, this.position.y, this.width, this.height);
   }
 

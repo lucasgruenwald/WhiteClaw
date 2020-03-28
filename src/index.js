@@ -13,12 +13,15 @@ let lastTime = 0;
 new InputHandler(claw);
 
 function drawClaw(ctx){
+  ctx.fillStyle = "#AEA8B6"
+  ctx.fillRect(0, 25, 450, 5)
   claw.draw(ctx);
+  
 }
 
 function drawBarrier(ctx){
   ctx.fillStyle = "black"
-  ctx.fillRect(125, 350, 350, 100)
+  ctx.fillRect(125, 390, 350, 60)
   ctx.fillStyle = "#757373"
   ctx.fillRect(125, 190, 5, 300);
   ctx.fillRect(125, 450, 350, 100);
@@ -30,19 +33,20 @@ function drawBarrier(ctx){
 function drawControls(ctx){
   ctx.fillStyle = "white"
   ctx.beginPath();
-  ctx.moveTo(190, 400);
-  ctx.lineTo(230, 380);
-  ctx.lineTo(230, 420);
+  ctx.moveTo(190, 420);
+  ctx.lineTo(230, 400);
+  ctx.lineTo(230, 440);
   ctx.fill();
   ctx.fillStyle = "green"
-  ctx.fillRect(250, 380, 70, 40)
+  ctx.fillRect(250, 400, 70, 40)
   ctx.fillStyle = "white"
   ctx.beginPath();
-  ctx.moveTo(380, 400);
-  ctx.lineTo(340, 380);
-  ctx.lineTo(340, 420);
+  ctx.moveTo(380, 420);
+  ctx.lineTo(340, 400);
+  ctx.lineTo(340, 440);
   ctx.fill();
 }
+
 
 function drawAll(ctx){
   drawClaw(ctx);
