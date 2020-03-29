@@ -1,5 +1,6 @@
-import Claw from "./claw.js";
 import Barrier from "./barrier.js"
+import Claw from "./claw.js";
+import Control from "./control.js"
 import InputHandler from "./input.js";
 
 let canvas = document.getElementById("gameScreen");
@@ -8,36 +9,20 @@ let ctx = canvas.getContext("2d");
 const GAME_WIDTH = 450;
 const GAME_HEIGHT = 550;
 
-let claw = new Claw(GAME_WIDTH, GAME_HEIGHT);
 let barrier = new Barrier();
+let claw = new Claw(GAME_WIDTH, GAME_HEIGHT);
+let control = new Control();
+
 let lastTime = 0;
 
 new InputHandler(claw);
 
 
-function drawControls(ctx){
-  ctx.fillStyle = "white"
-  ctx.beginPath();
-  ctx.moveTo(190, 420);
-  ctx.lineTo(230, 400);
-  ctx.lineTo(230, 440);
-  ctx.fill();
-  ctx.fillStyle = "green"
-  ctx.fillRect(250, 400, 70, 40)
-  ctx.fillStyle = "white"
-  ctx.beginPath();
-  ctx.moveTo(380, 420);
-  ctx.lineTo(340, 400);
-  ctx.lineTo(340, 440);
-  ctx.fill();
-}
-
-
 function drawAll(ctx){
   claw.draw(ctx)
   barrier.draw(ctx)
+  control.draw(ctx)
  
-  drawControls(ctx);
 }
 
 //images 
