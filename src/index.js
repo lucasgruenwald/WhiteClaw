@@ -23,7 +23,7 @@ function drawBarrier(ctx){
   ctx.fillStyle = "black"
   ctx.fillRect(125, 390, 350, 60)
   ctx.fillStyle = "#757373"
-  ctx.fillRect(125, 190, 5, 300);
+  ctx.fillRect(125, 220, 5, 300);
   ctx.fillRect(125, 450, 350, 100);
   ctx.fillRect(0, 400, 130, 150);
   ctx.fillStyle = "#474747"
@@ -54,15 +54,25 @@ function drawAll(ctx){
   drawControls(ctx);
 }
 
+//images 
+let can = document.getElementById("img-can")
+
+
 function gameLoop(timestamp) {
   let deltaTime = timestamp - lastTime;
   lastTime = timestamp;
 
   ctx.clearRect(0, 0, GAME_WIDTH, GAME_HEIGHT);
   claw.update(deltaTime);
-  // claw.draw(ctx);
   drawAll(ctx);
+  ctx.drawImage(can, 140, 280, 70, 120);
+  ctx.drawImage(can, 230, 280, 70, 120);
+  ctx.drawImage(can, 328, 280, 70, 120);
 
+  ctx.save();
+  ctx.rotate(1/4);
+  ctx.drawImage(can, 452, 165, 70, 120);
+  ctx.restore();
 
   requestAnimationFrame(gameLoop);
 }

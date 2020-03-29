@@ -1,7 +1,19 @@
-body {
-  font-family: sans-serif;
-}
+
 
 .img {
   max-height: 100px;
+}
+
+.can {
+  position:absolute;
+  top:30px;
+  left:30px;
+  width:50px;
+  height:50px;
+  background-image:url(https://png2.cleanpng.com/sh/8035ee6a2f192d372ef971a6db950873/L0KzQYm3WcI2N5hnjJH0aYP2gLBuTfNiepN0htN9ZXSwh7L7hgIuapZqip9CaHn3dX7qjPF4NZlmitY2c3XvhMvskr1idJR0RelxaYToPbTzggcufJlqReJAcnX2hH7vggJlNaRqhOZFZYKwebA0lPhmNah0it5tLUXlcbK9VsY2QZRofaQDLkm8Roq4VcIxOWY4T6oEM0m7SYe7UsMveJ9s/kisspng-carbonated-water-beer-white-claw-hard-seltzer-alco-white-claw-the-purest-hard-seltzer-in-the-world-5baa66659cce28.9969152015378939896423.png);
+  background-size:350px 350px;
+}
+
+.body {
+  display: flex;
 }
