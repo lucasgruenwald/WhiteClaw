@@ -10,7 +10,7 @@ export default class Barrier {
         ctx.fillRect(0, 390, 130, 160);
 
         ctx.fillStyle = "#474747"
-        ctx.fillRect(20, 450, 90, 90)
+        ctx.fillRect(20, 415, 90, 120)
         // claw bar 
         ctx.fillStyle = "#AEA8B6"
         ctx.fillRect(0, 25, 450, 5)

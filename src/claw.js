@@ -1,7 +1,7 @@
 export default class Claw {
   constructor(gameWidth, gameHeight) {
     this.gameWidth = gameWidth;
-    this.width = 40;
+    this.width = 60;
     this.height = 40;
 
     this.maxSpeed = 3;
@@ -27,7 +27,9 @@ export default class Claw {
 
   draw(ctx) {
     ctx.fillStyle = "#5A585C";
-    ctx.fillRect(this.position.x, this.position.y, this.width, this.height);
+    let trolley = ctx.fillRect(this.position.x, this.position.y, this.width, 20);
+    let leftClaw = ctx.fillRect(this.position.x, this.position.y + 10, 5, this.height + 25);
+    let rightClaw = ctx.fillRect(this.position.x + 55, this.position.y + 10, 5, this.height + 25);
   }
 
   update(deltaTime) {
