@@ -1,5 +1,5 @@
 # WhiteClaw
 
-(not live yet)
+-- currently under development -- 
 https://lukegruenwald.com/WhiteClaw
 
