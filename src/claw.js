@@ -15,11 +15,16 @@ export default class Claw {
   }
 
   moveLeft() {
-    this.speed = -this.maxSpeed;
+    if (this.dropSpeed === 0){
+      this.speed = -this.maxSpeed;
+    }
   }
 
   moveRight() {
-    this.speed = this.maxSpeed;
+    if (this.dropSpeed === 0){
+      this.speed = this.maxSpeed;
+    }
+    
   }
 
   moveDown() {
@@ -50,7 +55,13 @@ export default class Claw {
     if (this.position.x < 0) this.position.x = 0;
     if (this.position.y < 0) this.position.y = 0;
 
-    if (this.position.x + this.width > this.gameWidth)
+    if (this.position.x + this.width > this.gameWidth){
       this.position.x = this.gameWidth - this.width;
+    }
+
+    if (this.position.y + this.height > 352){
+      this.position.y =  310;
+    }
+      
   }
 }
