@@ -13,10 +13,6 @@ export default class InputHandler {
         case 32:
           claw.moveDown();
           break;
-        case 38:
-          claw.moveUp();
-          break;
-        
       }
     });
 
