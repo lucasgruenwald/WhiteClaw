@@ -6,6 +6,7 @@ export default class Claw {
 
     this.maxSpeed = 3;
     this.speed = 0;
+    this.dropSpeed = 0;
 
     this.position = {
       x: gameWidth - 410,
@@ -19,6 +20,14 @@ export default class Claw {
 
   moveRight() {
     this.speed = this.maxSpeed;
+  }
+
+  moveDown() {
+    this.dropSpeed = this.maxSpeed
+  }
+
+  moveUp() {
+    this.dropSpeed = -this.maxSpeed
   }
 
   stop() {
@@ -36,8 +45,10 @@ export default class Claw {
     if (!deltaTime) return;
 
     this.position.x += this.speed;
+    this.position.y += this.dropSpeed;
 
     if (this.position.x < 0) this.position.x = 0;
+    if (this.position.y < 0) this.position.y = 0;
 
     if (this.position.x + this.width > this.gameWidth)
       this.position.x = this.gameWidth - this.width;

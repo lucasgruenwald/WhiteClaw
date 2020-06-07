@@ -9,6 +9,14 @@ export default class InputHandler {
         case 39:
           claw.moveRight();
           break;
+
+        case 32:
+          claw.moveDown();
+          break;
+        case 38:
+          claw.moveUp();
+          break;
+        
       }
     });
 
