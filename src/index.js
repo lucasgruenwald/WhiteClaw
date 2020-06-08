@@ -15,7 +15,7 @@ let barrier = new Barrier();
 let claw = new Claw(GAME_WIDTH, GAME_HEIGHT);
 let control = new Control();
 // images
-let can = new Can();
+let can = new Can(GAME_WIDTH, GAME_HEIGHT, claw);
 
 let lastTime = 0;
 

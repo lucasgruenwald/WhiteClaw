@@ -8,6 +8,8 @@ export default class Claw {
     this.speed = 0;
     this.dropSpeed = 0;
     this.retrieving = false;
+    this.successful = false;
+    this.clawBottom = false;
     this.clawDelta = 0;
 
     this.position = {
@@ -32,10 +34,16 @@ export default class Claw {
   }
 
   moveDown() {
-    if (this.dropSpeed === 0){
+    if (this.dropSpeed === 0 && this.speed === 0){
       this.dropSpeed = this.maxSpeed;
       this.retrieving = true;
       this.openClaw()
+      if (this.position.x > 138.9 && this.position.x < 151.1) {
+        this.successful = true;
+      }    
+      if (this.position.x > 228.9 && this.position.x < 241.1) {
+        this.successful = true;
+      }   
     }
   }
 
@@ -53,6 +61,7 @@ export default class Claw {
     let trolley = ctx.fillRect(this.position.x, this.position.y, this.width, 20);
     let leftClaw = ctx.fillRect(this.position.x - this.clawDelta, this.position.y + 10, 5, this.height + 25);
     let rightClaw = ctx.fillRect(this.position.x + 55 + this.clawDelta, this.position.y + 10, 5, this.height + 25);
+    let dropCord = ctx.fillRect(this.position.x + 25 + (this.position.y * 0.03), 20, (350 / this.position.y), this.position.y);
   }
 
   openClaw() {
@@ -68,14 +77,20 @@ export default class Claw {
 
     this.position.x += this.speed;
     this.position.y += this.dropSpeed;
-
+    // console.log(this.position.x)
     // keep claw within frame
     if (this.position.x <= 34) {
       this.position.x = 34;
       this.retrieving = false;
+      this.clawBottom = false;
+      this.successful = false;
       this.openClaw()
       // add function to open claw & drop can
     };
+
+    if (this.position.y > 250) {
+      this.clawBottom = true;
+    }
     
     if (this.position.y <= 20) {
       if (this.dropSpeed !== 0) {
