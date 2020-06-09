@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -18,21 +19,30 @@
       #scoreboard {
         height: 200px;
         width: 200px;
-        background-color: lightsalmon;
+        background-: lightsalmon;
         text-align: center;
         padding-top: 50px;
         border-radius: 10px;
         margin-left: 20px;
       }
       .keyboard-controls{
-        margin-left: 20px;
+        text-align: center;
+        margin-left: -200px;
+        margin-right: 250px;
         padding: 5px;
         border: 1px solid salmon;
+      }
+      .key-title{
+        font-weight: bold;
+      }
+      .header{
+        font-size: 20px;
+        margin-left: 10%;
       }
     </style>
   </head>
 
-  <h4>-White Claw under development- not functional yet</h4>
+  <h4 class="header">- White Claw under development - not yet complete! -</h4>
   <img id="img-can" src="can.png">
 
   <body>
@@ -40,17 +50,17 @@
       <div class="col-left">
 
         <div>
-        <canvas id="gameScreen" width="450" height="550"></canvas>
+        <canvas id="gameScreen" width="700" height="550"></canvas>
         <script src="./bundle.js"></script>
         </div>
 
         <div>
           <div id="scoreboard">
-            Insert timer/score here
+            <!-- Insert timer/score here -->
           </div>
 
           <div class="keyboard-controls">
-            <p>Keyboard Controls</p>
+            <p class="key-title">Keyboard Controls</p>
             <p>Left Arrow: Move Left</p>
             <p>Right Arrow: Move Right</p>
             <p>Spacebar: Drop Claw</p>

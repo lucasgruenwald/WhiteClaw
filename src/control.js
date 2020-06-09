@@ -21,5 +21,7 @@ export default class Control {
         ctx.lineTo(340, 400);
         ctx.lineTo(340, 440);
         ctx.fill();
+        ctx.fillStyle = "red"
+        ctx.fillRect(130, 420, 345, 5)
     }
 }
