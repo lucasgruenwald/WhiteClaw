@@ -79,6 +79,7 @@ export default class Claw {
     ctx.font = "25px Arial";
     ctx.fillText("TOTAL CANS", 514, 150);
     ctx.fillText(this.score, 582, 200)
+    ctx.fillText("RESET", 650, 150);
   }
 
   openClaw() {
@@ -93,7 +94,6 @@ export default class Claw {
     if (!deltaTime) return;
     this.position.x += this.speed;
     this.position.y += this.dropSpeed;
-    // console.log(this.position.x)
     // keep claw within frame
     if (this.position.x <= 34) {
       this.position.x = 34;
@@ -130,11 +130,12 @@ export default class Claw {
       // keep claw from going too far down
       this.dropSpeed = -this.maxSpeed
       this.closeClaw()
-      if (this.position.x > 138.9 && this.position.x < 151.1){
+      if (this.position.x > 138.9 && this.position.x < 151.1 && this.removeCan1 === false){
         this.removeCan1 = true
-      } else if (this.position.x > 228.9 && this.position.x < 241.1){
+        console.log(this.removeCan1)
+      } else if (this.position.x > 228.9 && this.position.x < 241.1 && this.removeCan2 === false){
         this.removeCan2 = true
-      } else if (this.position.x > 326.9 && this.position.x < 339.1){
+      } else if (this.position.x > 326.9 && this.position.x < 339.1 && this.removeCan1 === false){
         this.removeCan3 = true
       }
       

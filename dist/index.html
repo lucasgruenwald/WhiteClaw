@@ -15,11 +15,21 @@
       }
       .col-left {
         display: flex;
+        width: 100%;
+        /* align-content: center; */
+        /* align-items: center; */
+        /* border: 3px solid red; */
+      }
+      .center-game{
+        display: flex;
+        margin-left: auto;
+        margin-right: auto;
+        /* border: 3px solid orange; */
+        margin-right: 25px;
       }
       #scoreboard {
-        height: 200px;
+        height: 250px;
         width: 200px;
-        background-: lightsalmon;
         text-align: center;
         padding-top: 50px;
         border-radius: 10px;
@@ -27,10 +37,24 @@
       }
       .keyboard-controls{
         text-align: center;
-        margin-left: -200px;
-        margin-right: 250px;
+        z-index: 10;
+        left: 0em;
+        /* margin-left: -400px; */
         padding: 5px;
-        border: 1px solid salmon;
+        /* border: 1px solid salmon; */
+        border-radius: 5px;
+        background-color: rgb(40, 40, 40);
+        color: white;
+      }
+      .flex{
+        display: flex;
+        align-items: center;
+        
+      }
+      .keyboard-holder{
+        z-index: 20;
+        margin-left: 5px;
+        margin-right: 25%;
       }
       .key-title{
         font-weight: bold;
@@ -42,32 +66,31 @@
     </style>
   </head>
 
-  <h4 class="header">- White Claw under development - not yet complete! -</h4>
+  <h4 class="header">- White Claw under development - not complete yet! -</h4>
   <img id="img-can" src="can.png">
 
   <body>
 
       <div class="col-left">
 
-        <div>
+        <div class="center-game">
         <canvas id="gameScreen" width="700" height="550"></canvas>
         <script src="./bundle.js"></script>
-        </div>
 
-        <div>
-          <div id="scoreboard">
-            <!-- Insert timer/score here -->
+        </div class="flex">
+          <div class="keyboard-holder">
+            <div id="scoreboard">
+              <!-- Insert timer/score here -->
+            </div>
+
+            <div class="keyboard-controls">
+              <p class="key-title">Keyboard Controls</p>
+              <p>Left Arrow: Move Left</p>
+              <p>Right Arrow: Move Right</p>
+              <p>Spacebar: Drop Claw</p>
+            </div>
           </div>
-
-          <div class="keyboard-controls">
-            <p class="key-title">Keyboard Controls</p>
-            <p>Left Arrow: Move Left</p>
-            <p>Right Arrow: Move Right</p>
-            <p>Spacebar: Drop Claw</p>
-          </div>
         </div>
-
-      </div>
 
       <div class="col-right">
     
