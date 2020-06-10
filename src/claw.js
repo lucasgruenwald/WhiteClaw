@@ -75,11 +75,16 @@ export default class Claw {
     let leftClaw = ctx.fillRect(this.position.x - this.clawDelta, this.position.y + 10, 5, this.height + 25);
     let rightClaw = ctx.fillRect(this.position.x + 55 + this.clawDelta, this.position.y + 10, 5, this.height + 25);
     let dropCord = ctx.fillRect(this.position.x + 25 + (this.position.y * 0.03), 20, (350 / this.position.y), this.position.y);
+    ctx.fillStyle = "green";
+    ctx.font = "25px Arial";
+    ctx.fillText("LEVEL 1", 540, 150);
     ctx.fillStyle = "#29a04f";
     ctx.font = "25px Arial";
-    ctx.fillText("TOTAL CANS", 514, 150);
-    ctx.fillText(this.score, 582, 200)
-    ctx.fillText("RESET", 650, 150);
+    ctx.fillText("TOTAL CANS", 514, 250);
+    ctx.fillText(this.score, 582, 300)
+    ctx.fillStyle = "blue";
+    ctx.font = "18px Arial";
+    ctx.fillText("Next Level", 542, 500);
   }
 
   openClaw() {
