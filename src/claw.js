@@ -16,6 +16,7 @@ export default class Claw {
     this.removeCan2 = false;
     this.removeCan3 = false;
     this.foundCans = [];
+    this.levelComplete = false
     this.score = 0;
 
     this.position = {
@@ -44,15 +45,15 @@ export default class Claw {
       this.dropSpeed = this.maxSpeed;
       this.retrieving = true;
       this.openClaw()
-      if (this.position.x > 138.9 && this.position.x < 151.1) {
+      if (this.position.x > 138.9 && this.position.x < 151.1 && this.removeCan1 === false) {
         this.successful = true;
         this.foundCans.push(1);
       }    
-      if (this.position.x > 228.9 && this.position.x < 241.1) {
+      if (this.position.x > 228.9 && this.position.x < 241.1 && this.removeCan2 === false) {
         this.successful = true;
         this.foundCans.push(2);
       }   
-      if (this.position.x > 326.9 && this.position.x < 339.1) {
+      if (this.position.x > 326.9 && this.position.x < 339.1 && this.removeCan3 === false) {
         this.successful = true;
         this.foundCans.push(3);
       }   
@@ -84,7 +85,10 @@ export default class Claw {
     ctx.fillText(this.score, 582, 300)
     ctx.fillStyle = "blue";
     ctx.font = "18px Arial";
-    ctx.fillText("Next Level", 542, 500);
+    if (this.levelComplete){
+      ctx.fillText("Next Level", 542, 500);
+    }
+
   }
 
   openClaw() {
@@ -137,13 +141,16 @@ export default class Claw {
       this.closeClaw()
       if (this.position.x > 138.9 && this.position.x < 151.1 && this.removeCan1 === false){
         this.removeCan1 = true
-        console.log(this.removeCan1)
       } else if (this.position.x > 228.9 && this.position.x < 241.1 && this.removeCan2 === false){
         this.removeCan2 = true
-      } else if (this.position.x > 326.9 && this.position.x < 339.1 && this.removeCan1 === false){
+      } else if (this.position.x > 326.9 && this.position.x < 339.1 && this.removeCan3 === false){
         this.removeCan3 = true
       }
       
+    }
+
+    if (this.removeCan1 === true && this.removeCan2 === true && this.removeCan3 === true){
+      this.levelComplete = true 
     }
 
       
