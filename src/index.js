@@ -27,6 +27,57 @@ let can = new Can(GAME_WIDTH, GAME_HEIGHT, claw);
 //   canvas.setAttribute("width", style_width * dpi);
 // }
 
+
+function getMousePos(canvas, event) {
+  var rect = canvas.getBoundingClientRect();
+  return {
+    x: event.clientX - rect.left,
+    y: event.clientY - rect.top
+  };
+}
+
+function isInside(pos, rect) {
+  return pos.x > rect.x && pos.x < rect.x + rect.width && pos.y < rect.y + rect.height && pos.y > rect.y
+}
+
+var rect = {
+  x: 250,
+  y: 400,
+  width: 70,
+  height: 40
+};
+var left = {
+  x: 190,
+  y: 400,
+  width: 40,
+  height: 40
+}
+var right = {
+  x: 340,
+  y: 400,
+  width: 40,
+  height: 40
+}
+
+canvas.addEventListener('mousedown', function (event) {
+  var mousePos = getMousePos(canvas, event);
+  if (isInside(mousePos, rect)) {
+    // alert('clicked inside rect');
+    claw.moveDown();
+  } else if (isInside(mousePos, left)){
+    claw.moveLeft()
+  } else if (isInside(mousePos, right)){
+    claw.moveRight()
+  }
+}, false);
+
+canvas.addEventListener('mouseup', function (event) {
+  if (claw.speed !== 0) {
+    claw.stop()
+  }
+}, false);
+
+
 let lastTime = 0;
 
 new InputHandler(claw);
