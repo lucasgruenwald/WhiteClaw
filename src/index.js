@@ -58,6 +58,12 @@ var right = {
   width: 40,
   height: 40
 }
+var reset = {
+  x: 524,
+  y: 522,
+  width: 125,
+  height: 40
+}
 
 canvas.addEventListener('mousedown', function (event) {
   var mousePos = getMousePos(canvas, event);
@@ -67,6 +73,27 @@ canvas.addEventListener('mousedown', function (event) {
     claw.moveLeft()
   } else if (isInside(mousePos, right)){
     claw.moveRight()
+  } else if (isInside(mousePos, reset)){
+    claw.maxSpeed = 3;
+    claw.speed = 0;
+    claw.dropSpeed = 0;
+    claw.retrieving = false;
+    claw.successful = false;
+    claw.clawBottom = false;
+    claw.clawDelta = 0;
+    claw.removeCan1 = false;
+    claw.removeCan2 = false;
+    claw.removeCan3 = false;
+    claw.foundCans = [];
+    claw.level = 1;
+    claw.levelComplete = false
+    claw.score = 0;
+    claw.gameWidth = gameWidth;
+    claw.gameHeight = gameHeight
+    claw.position = {
+      x: gameWidth - 410,
+      y: gameHeight - 530
+    };
   }
 }, false);
 

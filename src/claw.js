@@ -16,6 +16,7 @@ export default class Claw {
     this.removeCan2 = false;
     this.removeCan3 = false;
     this.foundCans = [];
+    this.level = 1;
     this.levelComplete = false
     this.score = 0;
 
@@ -83,12 +84,13 @@ export default class Claw {
     ctx.font = "25px Arial";
     ctx.fillText("TOTAL CANS", 514, 250);
     ctx.fillText(this.score, 582, 300)
+    ctx.font = "18px Arial";
+    ctx.fillText("Reset Game", 535, 540);
     ctx.fillStyle = "blue";
     ctx.font = "18px Arial";
     if (this.levelComplete){
-      ctx.fillText("Next Level", 542, 500);
+      ctx.fillText("Next Level", 544, 460);
     }
-
   }
 
   openClaw() {
