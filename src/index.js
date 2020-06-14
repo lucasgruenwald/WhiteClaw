@@ -62,7 +62,6 @@ var right = {
 canvas.addEventListener('mousedown', function (event) {
   var mousePos = getMousePos(canvas, event);
   if (isInside(mousePos, rect)) {
-    // alert('clicked inside rect');
     claw.moveDown();
   } else if (isInside(mousePos, left)){
     claw.moveLeft()

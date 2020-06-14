@@ -48,15 +48,15 @@ export default class Claw {
       if (this.position.x > 138.9 && this.position.x < 151.1 && this.removeCan1 === false) {
         this.successful = true;
         this.foundCans.push(1);
-      }    
-      if (this.position.x > 228.9 && this.position.x < 241.1 && this.removeCan2 === false) {
+      } else if (this.position.x > 228.9 && this.position.x < 241.1 && this.removeCan2 === false) {
         this.successful = true;
         this.foundCans.push(2);
-      }   
-      if (this.position.x > 326.9 && this.position.x < 339.1 && this.removeCan3 === false) {
+      } else if (this.position.x > 326.9 && this.position.x < 339.1 && this.removeCan3 === false) {
         this.successful = true;
         this.foundCans.push(3);
-      }   
+      } else {
+        this.successful = false;
+      }
     }
   }
 
@@ -76,10 +76,10 @@ export default class Claw {
     let leftClaw = ctx.fillRect(this.position.x - this.clawDelta, this.position.y + 10, 5, this.height + 25);
     let rightClaw = ctx.fillRect(this.position.x + 55 + this.clawDelta, this.position.y + 10, 5, this.height + 25);
     let dropCord = ctx.fillRect(this.position.x + 25 + (this.position.y * 0.03), 20, (350 / this.position.y), this.position.y);
-    ctx.fillStyle = "green";
+    ctx.fillStyle = "#474747";
     ctx.font = "25px Arial";
     ctx.fillText("LEVEL 1", 540, 150);
-    ctx.fillStyle = "#29a04f";
+    ctx.fillStyle = "#474747";
     ctx.font = "25px Arial";
     ctx.fillText("TOTAL CANS", 514, 250);
     ctx.fillText(this.score, 582, 300)
@@ -135,9 +135,9 @@ export default class Claw {
       this.position.x = this.gameWidth - this.width;  
     }
 
-    if (this.position.y + this.height > 300){
+    if (this.position.y + this.height > 300 && this.successful){
       // keep claw from going too far down
-      this.dropSpeed = -this.maxSpeed
+      this.dropSpeed = -this.maxSpeed*0.65
       this.closeClaw()
       if (this.position.x > 138.9 && this.position.x < 151.1 && this.removeCan1 === false){
         this.removeCan1 = true
@@ -146,8 +146,27 @@ export default class Claw {
       } else if (this.position.x > 326.9 && this.position.x < 339.1 && this.removeCan3 === false){
         this.removeCan3 = true
       }
+    } else if (this.position.y + this.height > 246 && !this.successful){
+      if (this.position.x < 180 && this.foundCans.includes(1)){
+        if (this.position.y + this.height > 340){
+          this.dropSpeed = -this.maxSpeed * 0.8
+          this.closeClaw()
+        }
+      } else if (this.position.x > 200 && this.position.x < 280 && this.foundCans.includes(2)){
+        if (this.position.y + this.height > 340) {
+          this.dropSpeed = -this.maxSpeed * 0.8
+          this.closeClaw()
+        }
+      } else if (this.position.x > 290 && this.foundCans.includes(3)) {
+        if (this.position.y + this.height > 340) {
+          this.dropSpeed = -this.maxSpeed * 0.8
+          this.closeClaw()
+        }
+      } else {
+        this.dropSpeed = -this.maxSpeed * 0.8
+      }
       
-    }
+    } 
 
     if (this.removeCan1 === true && this.removeCan2 === true && this.removeCan3 === true){
       this.levelComplete = true 
