@@ -90,6 +90,7 @@ export default class Claw {
     ctx.font = "18px Arial";
     if (this.levelComplete){
       ctx.fillText("Next Level", 544, 460);
+      ctx.fillText("Coming Soon", 544, 477);
     }
   }
 
